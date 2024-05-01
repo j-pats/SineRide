@@ -7,9 +7,9 @@ class Star extends Vertex {
     this.o = op;
   }
   
-  public void drawStar(float camX, float camY, float camZ){
+  public void drawStar(){
     stroke(this.o);
-    point(this.x + camX, this.y + camY, this.z+ camZ);
+    point(this.x, this.y, this.z);
   }
 
 }

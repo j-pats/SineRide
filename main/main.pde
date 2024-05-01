@@ -25,7 +25,7 @@ void setup() {
   g = new Ground(NUM_VERTEX_L, NUM_VERTEX_W, VERTEX_SPACE);
   
   // create sky
-  s = new Sky(1500, 1000);
+  s = new Sky(5000, 1500);
   
   // initialize movement value
   movement = 0.0;
@@ -65,8 +65,12 @@ void draw() {
   stroke(255);
   g.drawGround();
   
+  
   // draw stars
-  s.drawStars(posX, posY, posZ);
+  translate(posX, posY, posZ);
+  rotateX(-PI/12.0);
+  rotateZ(-(millis() / 100000.0));
+  s.drawStars();
   
   movement += movementRate;
 }

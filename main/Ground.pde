@@ -55,6 +55,13 @@ class Ground {
         }
       }
     }
+    // draw black box that blocks stars
+    pushMatrix();
+    translate(verts.get(verts.size()-1)[this.w_num / 2].getX(), 5100, verts.get(verts.size()-1)[this.w_num / 2].getZ());
+    fill(0);
+    stroke(0);
+    box(10,10000,10000);
+    popMatrix();
   }
   
   public void updateLandscapePoints(float cameraPos) {
