@@ -7,6 +7,7 @@ int NUM_VERTEX_L = 40;
 
 // main objects
 Ground g;
+Sky s;
 
 // movement value
 float movement;
@@ -22,6 +23,9 @@ void setup() {
   
   // create ground
   g = new Ground(NUM_VERTEX_L, NUM_VERTEX_W, VERTEX_SPACE);
+  
+  // create sky
+  s = new Sky(1500, 1000);
   
   // initialize movement value
   movement = 0.0;
@@ -60,6 +64,9 @@ void draw() {
   // draw landscape
   stroke(255);
   g.drawGround();
+  
+  // draw stars
+  s.drawStars(posX, posY, posZ);
   
   movement += movementRate;
 }
