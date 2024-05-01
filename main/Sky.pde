@@ -24,7 +24,7 @@ class Sky {
       y = (y * n) * this.r;
       z = (z * n) * this.r;
       starPositions[i] = new Star((float)x, (float)y, (float)z, random(45, 255));
-      println("X:" + x + " Y:" + y + " Z:" + z);
+      //println("X:" + x + " Y:" + y + " Z:" + z);
     }
   }
   

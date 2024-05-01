@@ -1,4 +1,9 @@
-import java.util.ArrayList;
+import ddf.minim.*;
+
+Minim minim;
+AudioPlayer playerIntro;
+AudioPlayer playerLoop;
+boolean loopStarted;
 
 // vertex constants
 float VERTEX_SPACE = 20.0;
@@ -21,6 +26,8 @@ void setup() {
   size(1200, 800, P3D);
   fill(204);
   
+  minim = new Minim(this);
+  
   // create ground
   g = new Ground(NUM_VERTEX_L, NUM_VERTEX_W, VERTEX_SPACE);
   
@@ -30,9 +37,22 @@ void setup() {
   // initialize movement value
   movement = 0.0;
   movementRate = 1.0;
+  
+  //setup sound file
+  playerIntro = minim.loadFile("sine_ride_intro.wav");
+  playerIntro.setGain(-20);
+  playerIntro.play();
+  
+  playerLoop = minim.loadFile("sine_ride_loop.wav");
+  playerLoop.setGain(-20);
 }
 
 void draw() {
+  // check if audio is done playing, then start next one
+  if (!playerIntro.isPlaying() && !loopStarted) {
+    playerLoop.loop();
+    loopStarted = true;
+  }
   lights();
   background(0);
   

@@ -38,7 +38,7 @@ class Ground {
   public void drawGround(){
     for (int i = 0; i < verts.size(); i++) {
       for (int j = 0; j < this.w_num; j++) {
-        stroke(184 - verts.get(i)[j].getY(), 0, 245, 255 - (i * (255.0 / verts.size())) );
+        stroke(184 - (verts.get(i)[j].getY() / 1.3), 0, 245, 255 - (i * (255.0 / verts.size())) );
         //if (i == verts.size() - 1) {
         //  stroke(255,0,0);
         //}
