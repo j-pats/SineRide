@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 // vertex constants
 float VERTEX_SPACE = 20.0;
-int NUM_VERTEX_W = 60;
+int NUM_VERTEX_W = 120;
 int NUM_VERTEX_L = 40;
 
 // main objects
@@ -10,6 +10,7 @@ Ground g;
 
 // movement value
 float movement;
+float movementRate;
 
 // camera values
 float eyeX, eyeY, eyeZ;
@@ -24,6 +25,7 @@ void setup() {
   
   // initialize movement value
   movement = 0.0;
+  movementRate = 1.0;
 }
 
 void draw() {
@@ -59,5 +61,18 @@ void draw() {
   stroke(255);
   g.drawGround();
   
-  movement += 1;
+  movement += movementRate;
+}
+
+void mouseWheel(MouseEvent event) {
+  float e = event.getCount();
+  g.ChangeScale(e);
+}
+
+void keyPressed(KeyEvent event) {
+  if (keyCode == 'W') {
+    movementRate += 1.0;
+  } else if (keyCode == 'S'){
+  movementRate -= 1.0;
+  }
 }
