@@ -112,5 +112,8 @@ class Ground {
     
   }
   
+  public float getScale() {
+    return this.scaleFactor;
+  }
   
 }

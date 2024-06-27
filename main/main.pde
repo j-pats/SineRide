@@ -96,8 +96,8 @@ void draw() {
 }
 
 void mouseWheel(MouseEvent event) {
-  float e = event.getCount();
-  g.ChangeScale(e);
+  // float e = event.getCount();
+  // g.ChangeScale(e);
 }
 
 void keyPressed(KeyEvent event) {
@@ -105,5 +105,9 @@ void keyPressed(KeyEvent event) {
     movementRate += 1.0;
   } else if (keyCode == 'S'){
   movementRate -= 1.0;
+  } else if (keyCode == 'A') {
+    g.ChangeScale(g.getScale() + 25.0f);
+  } else if (keyCode == 'D') {
+    g.ChangeScale(g.getScale() - 25.0f);
   }
 }
